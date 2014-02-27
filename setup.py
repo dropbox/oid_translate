@@ -10,7 +10,7 @@ kwargs = {
     "name": "oid_translate",
     "version": str(__version__),
     "packages": ["oid_translate"],
-    "ext_modules" = [_oid_translate])
+    "ext_modules": [_oid_translate],
     "description": "Python OID/MIB Name Translator",
     # PyPi, despite not parsing markdown, will prefer the README.md to the
     # standard README. Explicitly read it here.
