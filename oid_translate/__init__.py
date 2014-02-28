@@ -14,4 +14,6 @@ def init_mibs():
 
 
 def translate(oid, output_type=OID_OUTPUT_DEFAULT):
+    if oid.endswith("."):
+        oid = oid[:-1]
     return _oid_translate.translate(oid, output_type)
