@@ -2,10 +2,11 @@
 #include "Python.h"
 
 #include <net-snmp/net-snmp-config.h>
-#include <net-snmp/config_api.h>
-#include <net-snmp/mib_api.h>
-#include <net-snmp/library/tools.h>
 
+#include <net-snmp/config_api.h>
+#include <net-snmp/library/snmp_logging.h>
+#include <net-snmp/library/tools.h>
+#include <net-snmp/mib_api.h>
 
 static int initialized = 0;
 
@@ -38,7 +39,14 @@ oid_to_name(char *objid, int output_type)
 static PyObject *
 oid_translate_init(PyObject *self, PyObject *args)
 {
-    //netsnmp_init_mib();
+    int priority = LOG_DEBUG;
+    int pri_max  = LOG_EMERG;
+    netsnmp_log_handler *logh;
+
+    shutdown_snmp_logging();
+    logh = netsnmp_register_loghandler(NETSNMP_LOGHANDLER_NONE, priority);
+    if (logh) logh->pri_max = pri_max;
+
     init_snmp("oid_translate");
     initialized = 1;
     Py_RETURN_NONE;
