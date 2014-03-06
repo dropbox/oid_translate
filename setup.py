@@ -19,7 +19,7 @@ kwargs = {
     "maintainer": "Gary M. Josack",
     "author_email": "gary@dropbox.com",
     "maintainer_email": "gary@dropbox.com",
-    "license": "MIT",
+    "license": "Apache",
     "url": "https://github.com/dropbox/oid_translate",
     "download_url": "https://github.com/dropbox/oid_translate/archive/master.tar.gz",
     "classifiers": [
