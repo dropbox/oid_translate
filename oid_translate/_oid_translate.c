@@ -115,6 +115,9 @@ oid_translate_get_details(PyObject *self, PyObject *args)
     PyDict_SetItemString(outDict, "hint",
         Py_BuildValue("z", tp->hint)
     );
+    PyDict_SetItemString(outDict, "units",
+        Py_BuildValue("z", tp->units)
+    );
 
     if (tp->enums){
         struct enum_list *ep = tp->enums;

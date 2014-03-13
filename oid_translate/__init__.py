@@ -62,3 +62,9 @@ class ObjectId(object):
         if self._details is None:
             self._details = get_details(self.oid)
         return self._details.get("textual")
+
+    @property
+    def units(self):
+        if self._details is None:
+            self._details = get_details(self.oid)
+        return self._details.get("units")
