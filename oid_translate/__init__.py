@@ -33,6 +33,9 @@ class ObjectId(object):
         self.oid = translate(objid, OID_OUTPUT_NUMERIC)
         self._details = None
 
+    def __repr__(self):
+        return '<%s: %s>' % (self.__class__.__name__, self.name)
+
     @property
     def name(self):
         return translate(self.oid, OID_OUTPUT_DEFAULT)
